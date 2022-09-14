@@ -1,0 +1,21 @@
+const Colors = {
+  backgroundColor: '#1B232A',
+  background: '#F2F2F2',
+  primary: '#5ED5A8',
+  google: '#DB4437',
+  facebook: '#4267B2',
+  apple: '#F2F2F2',
+  secondary: '#BE88F2',
+  white: '#FFFFFF',
+  offWhite: '#f2f4f7',
+  green: '#2DC13B',
+  grey: '#C9D4E7',
+  icon: '#AA1B21',
+  black: '#161C22',
+  darkGray: '#454C5A',
+  offWhite: '#777777',
+  dark: '#1B2230',
+  lightGrey: '#C9D4E7',
+  warning: '#DD4B4B',
+};
+export default Colors;
