@@ -22,6 +22,7 @@ const Boarding = () => {
   const [visibal, setVisibal] = useState(false);
   const [visibal2, setVisibal2] = useState(false);
   const [visibal3, setVisibal3] = useState(false);
+  const [visibal4, setVisibal4] = useState(false);
   const [fouced, setFouced] = useState(true);
 
   const [signInVisible, setSigninVisible] = useState(true);
@@ -65,6 +66,7 @@ const Boarding = () => {
               alignItems: 'center',
               justifyContent: 'center',
               width: '100%',
+              height: '100%',
             }}>
             <View style={styles.body01}>
               <Image source={Images.boarding01} />
@@ -103,6 +105,7 @@ const Boarding = () => {
               alignItems: 'center',
               justifyContent: 'center',
               width: '100%',
+              height: '100%',
             }}>
             <View style={styles.body01}>
               <Image source={Images.boarding02} />
@@ -142,6 +145,7 @@ const Boarding = () => {
               alignItems: 'center',
               justifyContent: 'center',
               width: '100%',
+              height: '100%',
             }}>
             <View style={styles.body01}>
               <Image source={Images.boarding03} />
@@ -834,6 +838,7 @@ const Boarding = () => {
               </TouchableOpacity>
             </View>
             <TouchableOpacity
+              onPress={() => setVisibal4(true)}
               style={{
                 height: Metrix.VerticalSize(50),
                 backgroundColor: Colors.primary,
@@ -855,6 +860,51 @@ const Boarding = () => {
           </View>
         </View>
       </Modal>
+
+      {/* Modal 04 Complete Screen */}
+
+      <Modal visible={visibal4} style={{flex: 1}}>
+        <View style={styles.container03}>
+          <LinearGradient
+            start={{x: 0, y: 0}}
+            end={{x: 1, y: 1}}
+            colors={[
+              '#235c47',
+              Colors.backgroundColor,
+              Colors.black,
+              Colors.backgroundColor,
+            ]}
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: '100%',
+              height: '100%',
+            }}>
+            <View style={styles.body01}>
+              <Image source={Images.boarding04} />
+              <Text
+                style={{
+                  fontSize: Metrix.FontExtraLarge,
+                  color: Colors.white,
+                  fontWeight: 'bold',
+                  marginTop: Metrix.VerticalSize(45),
+                }}>
+                Your account has ben successfully created
+              </Text>
+            </View>
+            <CustomButton
+              title={'Get Started'}
+              onPress={() => {
+                setVisibal(true);
+              }}
+              buttonStyle={{
+                width: '80%',
+                top: Metrix.VerticalSize(30),
+              }}
+            />
+          </LinearGradient>
+        </View>
+      </Modal>
     </>
   );
 };
@@ -870,7 +920,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 10,
-    marginTop: Metrix.VerticalSize(100),
   },
   title01: {
     fontSize: 22,
