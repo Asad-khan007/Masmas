@@ -11,7 +11,7 @@ function Onboarding() {
   return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
       <Stack.Screen name="Boarding" component={Boarding} />
-      <Stack.Screen name="mobile" component={Mobile} />
+      {/* <Stack.Screen name="mobile" component={Mobile} /> */}
       {/* <Stack.Screen name="signUp" />
       <Stack.Screen name="signIn" />
       <Stack.Screen name="mobileRegister" />

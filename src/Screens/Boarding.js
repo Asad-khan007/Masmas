@@ -21,6 +21,7 @@ const Boarding = () => {
   const swiperRef = useRef(null);
   const [visibal, setVisibal] = useState(false);
   const [visibal2, setVisibal2] = useState(false);
+  const [visibal3, setVisibal3] = useState(false);
   const [fouced, setFouced] = useState(true);
 
   const [signInVisible, setSigninVisible] = useState(true);
@@ -266,6 +267,7 @@ const Boarding = () => {
                 }}
               />
               <TouchableOpacity
+                onPress={() => setSigninVisible(!signInVisible)}
                 style={{
                   position: 'absolute',
                   top: Metrix.VerticalSize(381),
@@ -274,7 +276,7 @@ const Boarding = () => {
                   zIndex: 69,
                 }}>
                 <Image
-                  source={Images.unview}
+                  source={!signInVisible ? Images.view : Images.unview}
                   style={{
                     height: 24,
                     width: 24,
@@ -461,6 +463,7 @@ const Boarding = () => {
                 }}
               />
               <TouchableOpacity
+                onPress={() => setSignupVisible(!signupVisible)}
                 style={{
                   position: 'absolute',
                   top: Metrix.VerticalSize(381),
@@ -469,7 +472,7 @@ const Boarding = () => {
                   zIndex: 69,
                 }}>
                 <Image
-                  source={Images.unview}
+                  source={signupVisible ? Images.unview : Images.view}
                   style={{
                     height: 24,
                     width: 24,
@@ -591,6 +594,9 @@ const Boarding = () => {
           )}
         </View>
       </Modal>
+
+      {/* Modal 02 for screen */}
+
       <Modal visible={visibal2} style={{flex: 1}}>
         <View
           style={{
@@ -662,6 +668,171 @@ const Boarding = () => {
                 // width: '90%',
               }}
             />
+            <TouchableOpacity
+              onPress={() => setVisibal3(true)}
+              style={{
+                height: Metrix.VerticalSize(50),
+                backgroundColor: Colors.primary,
+                marginHorizontal: Metrix.HorizontalSize(28),
+                borderRadius: 12,
+                marginTop: Metrix.VerticalSize(50),
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text
+                style={{
+                  color: Colors.black,
+                  fontWeight: '400',
+                  fontSize: Metrix.FontMedium,
+                }}>
+                Send OTP
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Modal 03 for Otp */}
+
+      <Modal visible={visibal3} style={{flex: 1}}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: Colors.backgroundColor,
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              margin: 20,
+              marginTop: getStatusBarHeight(),
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                setVisibal3(false);
+              }}>
+              <Image source={Images.back} style={{height: 20, width: 20}} />
+            </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: Metrix.FontMedium,
+                marginLeft: 30,
+                color: Colors.offWhite,
+                fontWeight: '600',
+              }}>
+              verification
+            </Text>
+          </View>
+          <View style={{flex: 1}}>
+            <Text
+              style={{
+                fontSize: Metrix.FontExtraLarge,
+                color: Colors.white,
+                fontWeight: 'bold',
+                marginTop: Metrix.VerticalSize(50),
+                marginHorizontal: 20,
+              }}>
+              Enter your code
+            </Text>
+            <Text
+              style={{
+                color: Colors.offWhite,
+                marginTop: Metrix.VerticalSize(16),
+                marginHorizontal: 20,
+              }}>
+              please type your code we send to
+            </Text>
+            <Text
+              style={{
+                color: Colors.primary,
+                marginHorizontal: 20,
+                marginTop: 6,
+              }}>
+              +923252287767
+            </Text>
+            <View
+              style={{
+                marginHorizontal: Metrix.HorizontalSize(30),
+                marginTop: Metrix.VerticalSize(40),
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+              }}>
+              <TextInput
+                maxLength={1}
+                on
+                placeholderTextColor={Colors.offWhite}
+                keyboardType={'number-pad'}
+                style={{
+                  backgroundColor: Colors.black,
+                  borderRadius: 12,
+                  height: Metrix.VerticalSize(48),
+                  color: Colors.white,
+                  width: 50,
+                  fontSize: Metrix.FontExtraLarge,
+                  fontWeight: 'bold',
+                  paddingLeft: 15,
+                }}
+              />
+              <TextInput
+                maxLength={1}
+                placeholderTextColor={Colors.offWhite}
+                keyboardType={'number-pad'}
+                style={{
+                  backgroundColor: Colors.black,
+                  borderRadius: 12,
+                  height: Metrix.VerticalSize(50),
+                  paddingLeft: 20,
+                  color: Colors.white,
+                  width: 50,
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                }}
+              />
+              <TextInput
+                maxLength={1}
+                placeholderTextColor={Colors.offWhite}
+                keyboardType={'number-pad'}
+                style={{
+                  backgroundColor: Colors.black,
+                  borderRadius: 12,
+                  height: Metrix.VerticalSize(50),
+                  paddingLeft: 20,
+                  color: Colors.white,
+                  width: 50,
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                }}
+              />
+              <TextInput
+                maxLength={1}
+                placeholderTextColor={Colors.offWhite}
+                keyboardType={'number-pad'}
+                style={{
+                  backgroundColor: Colors.black,
+                  borderRadius: 12,
+                  height: Metrix.VerticalSize(50),
+                  paddingLeft: 20,
+                  color: Colors.white,
+                  width: 50,
+                  fontSize: 30,
+                  fontWeight: 'bold',
+                }}
+              />
+            </View>
+            <View
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: Metrix.VerticalSize(40),
+              }}>
+              <Text style={{color: Colors.offWhite}}>Resend Code(30)</Text>
+              <TouchableOpacity style={{marginTop: 6}}>
+                <Text
+                  style={{color: Colors.primary, fontSize: Metrix.FontSmall}}>
+                  Resend Link
+                </Text>
+              </TouchableOpacity>
+            </View>
             <TouchableOpacity
               style={{
                 height: Metrix.VerticalSize(50),
