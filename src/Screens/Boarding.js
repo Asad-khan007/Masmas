@@ -826,7 +826,7 @@ const Boarding = () => {
                 marginTop: Metrix.VerticalSize(40),
               }}>
               <Text style={{color: Colors.offWhite}}>Resend Code(30)</Text>
-              <TouchableOpacity style={{marginTop: 6}}>
+              <TouchableOpacity style={{marginTop: 4}}>
                 <Text
                   style={{color: Colors.primary, fontSize: Metrix.FontSmall}}>
                   Resend Link
@@ -849,7 +849,7 @@ const Boarding = () => {
                   fontWeight: '400',
                   fontSize: Metrix.FontMedium,
                 }}>
-                Send OTP
+                Continue
               </Text>
             </TouchableOpacity>
           </View>
