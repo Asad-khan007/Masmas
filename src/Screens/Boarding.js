@@ -7,7 +7,7 @@ import {
   Modal,
   TextInput,
 } from 'react-native';
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 
 import Colors from '../Config/colors';
 import Swiper from 'react-native-swiper';
@@ -15,10 +15,12 @@ import {Metrix, NavService} from '../Config';
 import CustomButton from '../Components/CustomButton';
 import Images from '../Assetes';
 import LinearGradient from 'react-native-linear-gradient';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const Boarding = () => {
   const swiperRef = useRef(null);
   const [visibal, setVisibal] = useState(false);
+  const [visibal2, setVisibal2] = useState(false);
   const [fouced, setFouced] = useState(true);
 
   const [signInVisible, setSigninVisible] = useState(true);
@@ -266,17 +268,17 @@ const Boarding = () => {
               <TouchableOpacity
                 style={{
                   position: 'absolute',
-                  top: Metrix.VerticalSize(260),
+                  top: Metrix.VerticalSize(381),
                   alignSelf: 'flex-end',
                   right: 50,
                   zIndex: 69,
                 }}>
                 <Image
-                  source={Images.view}
+                  source={Images.unview}
                   style={{
                     height: 24,
                     width: 24,
-                    tintColor: Colors.backgroundColor,
+                    tintColor: Colors.offWhite,
                   }}
                 />
               </TouchableOpacity>
@@ -435,7 +437,7 @@ const Boarding = () => {
                 <Text style={{color: Colors.offWhite}}>Email</Text>
                 <TouchableOpacity
                   onPress={() => {
-                    NavService.navigate('mobile');
+                    setVisibal2(true);
                   }}>
                   <Text style={{color: Colors.primary}}>
                     Register with mobile
@@ -458,6 +460,23 @@ const Boarding = () => {
                   paddingLeft: 20,
                 }}
               />
+              <TouchableOpacity
+                style={{
+                  position: 'absolute',
+                  top: Metrix.VerticalSize(381),
+                  alignSelf: 'flex-end',
+                  right: 50,
+                  zIndex: 69,
+                }}>
+                <Image
+                  source={Images.unview}
+                  style={{
+                    height: 24,
+                    width: 24,
+                    tintColor: Colors.offWhite,
+                  }}
+                />
+              </TouchableOpacity>
               <View
                 style={{
                   marginHorizontal: Metrix.HorizontalSize(30),
@@ -570,6 +589,99 @@ const Boarding = () => {
               </View>
             </>
           )}
+        </View>
+      </Modal>
+      <Modal visible={visibal2} style={{flex: 1}}>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: Colors.backgroundColor,
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              margin: 20,
+              marginTop: getStatusBarHeight(),
+              alignItems: 'center',
+            }}>
+            <TouchableOpacity
+              onPress={() => {
+                setVisibal2(false);
+              }}>
+              <Image source={Images.back} style={{height: 20, width: 20}} />
+            </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: Metrix.FontMedium,
+                marginLeft: 30,
+                color: Colors.offWhite,
+                fontWeight: '600',
+              }}>
+              Sign up
+            </Text>
+          </View>
+          <View style={{flex: 1}}>
+            <Text
+              style={{
+                fontSize: Metrix.FontExtraLarge,
+                color: Colors.white,
+                fontWeight: 'bold',
+                marginTop: Metrix.VerticalSize(50),
+                marginHorizontal: 20,
+              }}>
+              Register with mobile
+            </Text>
+            <Text
+              style={{
+                color: Colors.offWhite,
+                marginTop: Metrix.VerticalSize(16),
+                marginHorizontal: 20,
+              }}>
+              please type your number, then we'll send a verification code for
+              authentication
+            </Text>
+            <View
+              style={{
+                marginHorizontal: Metrix.HorizontalSize(30),
+                marginTop: Metrix.VerticalSize(40),
+                // alignItems: 'center',
+              }}>
+              <Text style={{color: Colors.offWhite}}>Mobile Number</Text>
+            </View>
+            <TextInput
+              placeholderTextColor={Colors.offWhite}
+              placeholder="please enter password"
+              style={{
+                backgroundColor: Colors.black,
+                marginHorizontal: Metrix.HorizontalSize(26),
+                marginTop: 12,
+                borderRadius: 12,
+                height: Metrix.VerticalSize(50),
+                paddingLeft: 20,
+                color: Colors.offWhite,
+                // width: '90%',
+              }}
+            />
+            <TouchableOpacity
+              style={{
+                height: Metrix.VerticalSize(50),
+                backgroundColor: Colors.primary,
+                marginHorizontal: Metrix.HorizontalSize(28),
+                borderRadius: 12,
+                marginTop: Metrix.VerticalSize(50),
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <Text
+                style={{
+                  color: Colors.black,
+                  fontWeight: '400',
+                  fontSize: Metrix.FontMedium,
+                }}>
+                Send OTP
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </Modal>
     </>

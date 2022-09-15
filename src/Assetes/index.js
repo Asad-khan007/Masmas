@@ -8,4 +8,5 @@ export default Images = {
   finger: require('./finger.png'),
   view: require('./visible.png'),
   unview: require('./unvisible.png'),
+  back: require('./back.png'),
 };

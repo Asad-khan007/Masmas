@@ -1,9 +1,8 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
-import Icons from '../assets/Icons';
-import Images from '../assets/Images';
-import {Colors, NavService} from '../config';
+import Images from '../Assetes';
+import {Colors, Metrix, NavService} from '../Config';
 
 export function AppBackground({
   editeIcon,
@@ -34,7 +33,7 @@ export function AppBackground({
           marginTop: getStatusBarHeight(),
           flexDirection: 'row',
           width: '100%',
-          justifyContent: 'center',
+          // justifyContent: 'center',
           alignItems: 'center',
           marginBottom: 10,
         }}>
@@ -45,7 +44,6 @@ export function AppBackground({
             style={{
               position: 'absolute',
               alignItems: 'center',
-              backgroundColor: Colors.darkGray,
               borderRadius: 10,
               left: 20,
               width: 38,
@@ -53,22 +51,24 @@ export function AppBackground({
               justifyContent: 'center',
             }}>
             <Image
-              source={back ? Icons.back : Icons.menu}
+              source={Images.back}
               style={{
-                width: 25,
-                height: 25,
+                width: 20,
+                height: 20,
                 resizeMode: 'contain',
-                tintColor: Colors.white,
               }}
             />
           </TouchableOpacity>
 
-          <View>
+          <View
+            style={{
+              paddingLeft: Metrix.HorizontalSize(70),
+            }}>
             <Text
               style={{
                 color: Colors.grey,
-                fontWeight: '700',
-                fontSize: 18,
+                fontWeight: '600',
+                fontSize: 22,
               }}>
               {title}
             </Text>
