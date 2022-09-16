@@ -247,11 +247,11 @@ const Boarding = () => {
                   alignItems: 'center',
                 }}>
                 <Text style={{color: Colors.offWhite}}>Email</Text>
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <Text style={{color: Colors.primary}}>
                     Sign in with email
                   </Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
               </View>
               <TextInput
                 placeholderTextColor={Colors.offWhite}
@@ -464,6 +464,7 @@ const Boarding = () => {
                   borderRadius: 12,
                   height: Metrix.VerticalSize(50),
                   paddingLeft: 20,
+                  color: Colors.offWhite,
                 }}
               />
               <TouchableOpacity
@@ -660,7 +661,8 @@ const Boarding = () => {
             </View>
             <TextInput
               placeholderTextColor={Colors.offWhite}
-              placeholder="please enter password"
+              placeholder="Enter your number"
+              keyboardType="number-pad"
               style={{
                 backgroundColor: Colors.black,
                 marginHorizontal: Metrix.HorizontalSize(26),
@@ -724,7 +726,7 @@ const Boarding = () => {
                 color: Colors.offWhite,
                 fontWeight: '600',
               }}>
-              verification
+              Verification
             </Text>
           </View>
           <View style={{flex: 1}}>
@@ -763,9 +765,9 @@ const Boarding = () => {
               }}>
               <TextInput
                 maxLength={1}
-                on
                 placeholderTextColor={Colors.offWhite}
                 keyboardType={'number-pad'}
+                textContentType={'postalCode'}
                 style={{
                   backgroundColor: Colors.black,
                   borderRadius: 12,
@@ -811,6 +813,7 @@ const Boarding = () => {
                 maxLength={1}
                 placeholderTextColor={Colors.offWhite}
                 keyboardType={'number-pad'}
+                textContentType={'postalCode'}
                 style={{
                   backgroundColor: Colors.black,
                   borderRadius: 12,
