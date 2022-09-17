@@ -6,7 +6,7 @@ Dimensions.addEventListener('change', ({window, screen}) => {
   width = window.width;
 });
 
-height -= Platform.OS == 'ios' ? 70 : 24;
+height -= Platform.OS == 'ios' ? 25 : 24;
 
 const scale = height / 812;
 
